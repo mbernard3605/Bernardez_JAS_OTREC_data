@@ -1,3 +1,4 @@
+%Creates the base plot for figure 4
 clear variables;
 close all;
 
@@ -9,9 +10,11 @@ folders = dir(rawPath);
 
 plotDir = '../Plots/ecmwf/';
 
+%load the ERA eofs
 load('ERA5_EOFS.mat');
 eof=lds./weights.^0.5;
 
+%Load the OTREC data
 load('OTREC_B1.mat');
 ang_ERA_OTREC_B1 = ang_ERA;
 o1_ERA_OTREC_B1 = o1_ERA;

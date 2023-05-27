@@ -1,3 +1,5 @@
+%Script that plots the base of figure 8
+
 close all;
 clear variables;
 clc;

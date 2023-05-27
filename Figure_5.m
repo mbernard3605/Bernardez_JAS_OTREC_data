@@ -1,3 +1,4 @@
+%Plots figure 5
 clear variables;
 
 
@@ -53,24 +54,13 @@ MR_OTREC_B2=mrShape;
 z_OTREC_B2=z;
 p_OTREC_B2=presShape;
 
+%combine the two boxes
 ang_ERA_OTREC=[ang_ERA_OTREC_B1 ang_ERA_OTREC_B2];
-O1_ERA_OTREC=[o1_ERA_OTREC_B1 o1_ERA_OTREC_B2];
-O2_ERA_OTREC=[o2_ERA_OTREC_B1 o2_ERA_OTREC_B2];
 DCIN_OTREC=[DCIN_OTREC_B1 DCIN_OTREC_B2];
 II_OTREC=[II_OTREC_B1 II_OTREC_B2];
-SF_OTREC=[SF_OTREC_B1 SF_OTREC_B2];
 MDC_OTREC=[SFb_OTREC_B1-SFt_OTREC_B1 SFb_OTREC_B2-SFt_OTREC_B2];
-SST_OTREC=[sst_OTREC_B1 sst_OTREC_B2];
-sst_anom2=[sst_OTREC_B1-nanmean(sst_OTREC_B1) sst_OTREC_B2-nanmean(sst_OTREC_B2)];
-omega_OTREC=[omega_binn_OTREC_B1 omega_binn_OTREC_B2];
-pres=[pres_B1 pres_B2]/100;
-Temp_OTREC=[Temp_OTREC_B1 Temp_OTREC_B2];
-MR_OTREC=[MR_OTREC_B1 MR_OTREC_B2];
-z_OTREC=[z_OTREC_B1 z_OTREC_B2];
-Temp_detrended_OTREC=Temp_OTREC-nanmean(Temp_OTREC,2);
-qv_detrended_OTREC=MR_OTREC-nanmean(MR_OTREC,2);
 
-
+%plot the instability index and MDC
 figure, set(gcf,'units','normalized','outerposition',[0.05 0.05 0.6 0.75]);
 scatter(II_OTREC,MDC_OTREC,5,'filled');
 set(gca,'fontsize',16,'xlim',[-5 55],'ylim',[.35 .7]);

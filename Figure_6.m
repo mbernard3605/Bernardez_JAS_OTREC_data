@@ -1,3 +1,4 @@
+%script that creates the toy model and plots figure 6
 close all;
 clear variables;
 clc;
@@ -27,19 +28,13 @@ qvstar=calc_qvstar(T,presmean*100);
 qv=RH*qvstar;
 qv(1:5)=(RH+.1)*qvstar(1:5);
 
+%calculate plume buoyancy
 [s,h,hsat,hp,tp]= zero_plume_buoyancy_multi_plume(T,qv,z',presmean*100,4000);
 tdiff=tp-T;
 ztop=hp>=hsat;
+
 tpert=-exp(-(z-5000).^2./2000.^2);
-T4=T+tpert';
-qvstar4=calc_qvstar(T4,presmean*100);
 
-qv4=RH*qvstar4;
-qv4(1:5)=(RH+.1)*qvstar4(1:5);
-
-[s4,h4,hsat4,hp4,tp4]= zero_plume_buoyancy_multi_plume(T4,qv,z',presmean*100,4000);
-tdiff4=tp4-T4;
-ztop4=hp4>=hsat4;
 
 %Set the levels and parameters for the anomalies
      c3=2000;

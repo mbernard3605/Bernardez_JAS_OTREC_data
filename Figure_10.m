@@ -1,3 +1,5 @@
+%Script that plots figure 10
+
 clear variables;
 close all;
 
